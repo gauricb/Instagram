@@ -27,6 +27,7 @@ import androidx.fragment.app.FragmentManager;
 
 import com.example.instagram.fragments.ComposeFragment;
 import com.example.instagram.fragments.PostFragment;
+import com.example.instagram.fragments.ProfileFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.parse.FindCallback;
 import com.parse.ParseException;
@@ -51,9 +52,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         bottomNavigationView = findViewById(R.id.bottomNavigation);
-
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.action_profile:
                         Toast.makeText(MainActivity.this, "Profile!", Toast.LENGTH_SHORT).show();
-                        fragment = new ComposeFragment();
+                        fragment = new ProfileFragment();
                         break;
                     default:
                         break;
@@ -97,11 +96,6 @@ public class MainActivity extends AppCompatActivity {
         if (item.getItemId() == R.id.logoutButton) {
             Toast.makeText(MainActivity.this, "logout selected!", Toast.LENGTH_SHORT).show();
             onLogOutButton();
-            finish();
-        }
-        if (item.getItemId() == R.id.btnFeed) {
-            Toast.makeText(MainActivity.this, "going to your feed", Toast.LENGTH_SHORT).show();
-            onFeedButton();
             finish();
         }
 
